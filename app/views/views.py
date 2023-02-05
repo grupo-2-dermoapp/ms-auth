@@ -54,6 +54,8 @@ class DoctorRegister(Resource):
                 email = email,
                 names = request_data['names'],
                 surnames = request_data['surnames'],
+                nationality = request_data['nationality'],
+                speciality = request_data['speciality'],
                 password = password_hash,
                 medical_license = file_path)
 
@@ -153,7 +155,7 @@ class DermatologicalProfileRegister(Resource):
                 skin_stay_in_the_sun = request_data['skin_stay_in_the_sun'],
                 turn_brown = request_data['turn_brown'],
                 how_brown = request_data['how_brown'],
-                face_sensitive = request.data['face_sensitive'],
+                face_sensitive = request_data['face_sensitive'],
                 how_often_tan = request_data['how_often_tan'],
                 artificial_time_expose = request_data['artificial_time_expose'])
 

@@ -7,13 +7,13 @@ from app.utils.utils import uuid4Str
 from .emums import *
 from app import db
 
-
-
 class Doctor(db.Model):
     uuid = Column(String(40), primary_key=True, default=uuid4Str)
     email = Column(String(40), unique=True)
     names = Column(String(50))
     surnames = Column(String(40))
+    nationality = Column(String(40))
+    spaciality = Column(String(40))
     password = Column(String(200))
     medical_license = Column(String(200))
     is_active = Column(Boolean(), default=False)

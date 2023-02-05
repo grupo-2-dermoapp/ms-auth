@@ -1,5 +1,5 @@
 #FROM python:3.9.16-alpine3.16
-FROM python:3.9.9-slim-buster
+FROM python:3.9.7-slim-buster
 
 COPY . .
 
