@@ -15,7 +15,6 @@ settings_module = os.getenv('APP_SETTINGS_MODULE')
 app = create_app(settings_module)
 
 api = Api(app)
-migrate = Migrate()
 CORS(app)
 
 api.add_resource(Health, "/dermoapp/auth/v1/health")

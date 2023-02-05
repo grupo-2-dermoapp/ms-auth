@@ -49,6 +49,13 @@ class HowBrown(enum.Enum):
     DARK_TAN = 3
     VERY_DARK_TAN = 4
 
+class FaceSensitive(enum.Enum):
+    VERY_SENSITIVE = 0
+    SENSITIVE = 1
+    MILDLY_SENSITIVE = 2
+    RESISTANT = 3
+    VERY_RESISTANT = 4
+
 class HowOftenTan(enum.Enum):
     NEVER = 0
     RERELY = 1
