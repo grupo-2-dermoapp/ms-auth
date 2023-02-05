@@ -54,6 +54,8 @@ class DoctorRegister(Resource):
                 email = email,
                 names = request_data['names'],
                 surnames = request_data['surnames'],
+                nationality = request_data['nationality'],
+                speciality = request_data['speciality'],
                 password = password_hash,
                 medical_license = file_path)
 
@@ -100,12 +102,11 @@ class PatientRegister(Resource):
                 return  data, 400
 
             password_hash = generate_password_hash(request_data['password'])
-            bithdate = datetime.datetime.strptime(request_data['bithdate'], '%Y-%m-%dT%H:%M:%S.%f')
             patient = Patient(
                 email = email,
                 names = request_data['names'],
-                surnames = request_data['surnames'],
-                bithdate = bithdate,
+                age = request_data['age'],
+                location = request_data['age'],
                 password = password_hash)
 
             if request_data['dermatological_profile_uuid']:
@@ -154,6 +155,7 @@ class DermatologicalProfileRegister(Resource):
                 skin_stay_in_the_sun = request_data['skin_stay_in_the_sun'],
                 turn_brown = request_data['turn_brown'],
                 how_brown = request_data['how_brown'],
+                face_sensitive = request_data['face_sensitive'],
                 how_often_tan = request_data['how_often_tan'],
                 artificial_time_expose = request_data['artificial_time_expose'])
 
@@ -163,8 +165,11 @@ class DermatologicalProfileRegister(Resource):
             data = {
                 "code": "1020",
                 "message" : "Perfil dermatologico creado correctamente",
-
+                "dermatological_data" : {
+                    "uuid" : dermatological_profile.uuid
+                }
             }  
+
             return data, 201
 
 

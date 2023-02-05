@@ -7,13 +7,13 @@ from app.utils.utils import uuid4Str
 from .emums import *
 from app import db
 
-
-
 class Doctor(db.Model):
     uuid = Column(String(40), primary_key=True, default=uuid4Str)
     email = Column(String(40), unique=True)
     names = Column(String(50))
     surnames = Column(String(40))
+    nationality = Column(String(40))
+    spaciality = Column(String(40))
     password = Column(String(200))
     medical_license = Column(String(200))
     is_active = Column(Boolean(), default=False)
@@ -30,8 +30,7 @@ class Patient(db.Model):
     uuid = Column(String(40), primary_key=True, default=uuid4Str)
     email = Column(String(40), unique=True)
     names = Column(String(50))
-    surnames = Column(String(40))
-    bithdate = Column(DateTime())
+    location = Column(String(50))
     password = Column(String(200))
     dermatological_profile_uuid = Column(String(40), ForeignKey('dermatological_profile.uuid'))
     is_active = Column(Boolean(), default=True)
@@ -54,6 +53,7 @@ class DermatologicalProfile(db.Model):
     skin_stay_in_the_sun = Column(Enum(SkinStayInTheSun))
     turn_brown = Column(Enum(TurnBrown))
     how_brown = Column(Enum(HowBrown))
+    face_sensitive = Column(Enum(FaceSensitive))
     how_often_tan = Column(Enum(HowOftenTan))
     artificial_time_expose = Column(Enum(ArtificialTimeExpose))
     patient = db.relationship('Patient', backref='dermatological_profile')

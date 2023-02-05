@@ -1,21 +1,19 @@
-from app.views.views import DoctorRegister, PatientRegister
-from app.views.views import DermatologicalProfileRegister, Health
-from app.views.views import PatientLogin
-
 from flask_jwt_extended import JWTManager
 from flask_restful import Api
 from flask_cors import CORS
 from app import create_app
 from flask import jsonify
 from flask_migrate import Migrate
-from app import db
+
+from app.views.views import DoctorRegister, PatientRegister
+from app.views.views import DermatologicalProfileRegister, Health
+from app.views.views import PatientLogin
 import os
 
 settings_module = os.getenv('APP_SETTINGS_MODULE')
 app = create_app(settings_module)
 
 api = Api(app)
-migrate = Migrate()
 CORS(app)
 
 api.add_resource(Health, "/dermoapp/auth/v1/health")

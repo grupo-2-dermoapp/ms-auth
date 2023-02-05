@@ -15,6 +15,6 @@ def create_app(settings_module):
         app.config.from_pyfile('stage.py', silent=True)
 
     db.init_app(app)
-    migrate.init_app(app, db)
+    migrate.init_app(app, db, render_as_batch=True)
 
     return app
