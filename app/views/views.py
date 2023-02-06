@@ -106,7 +106,7 @@ class PatientRegister(Resource):
                 email = email,
                 names = request_data['names'],
                 age = request_data['age'],
-                location = request_data['age'],
+                location = request_data['location'],
                 password = password_hash)
 
             if request_data['dermatological_profile_uuid']:
