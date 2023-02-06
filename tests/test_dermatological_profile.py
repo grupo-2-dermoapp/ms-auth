@@ -11,53 +11,35 @@ def test_dermatological_profile_without_params(client):
     assert code == '400 BAD REQUEST'
 
 
-# def test_patient_register_ok(client, app):
-#     clear_patients_table(app)
-#     patient = {}
-#     patient['email'] = 'test@test.com'
-#     patient['names'] = 'Usuario Test'
-#     patient['age'] = '18'
-#     patient['location'] = 'New York'
-#     patient['password'] = 'test'
-#     patient['dermatological_profile_uuid'] = ''
+def test_dermatological_profile_ok(client, app):
+    clear_dermatological_profile_table(app)
+    profile = {}
+    profile['eyes_color'] = 'LIGHT_BLUE_GREEN_GREY'
+    profile['hair_color'] = 'RED'
+    profile['skin_color'] = 'PINK'
+    profile['freckles'] = 'MANY'
+    profile['skin_stay_in_the_sun'] = 'SEVERE_BURNS'
+    profile['turn_brown'] = 'NEVER'
+    profile['how_brown'] = 'HARDLY'
+    profile['face_sensitive'] = 'VERY_SENSITIVE'
+    profile['how_often_tan'] = 'NEVER'
+    profile['artificial_time_expose'] = 'MORE_THREE_MONTHS'
 
-#     response = client.post("/dermoapp/auth/v1/patient-register", json=patient)
+    response = client.post("/dermoapp/auth/v1/dermo-profile-register", json=profile)
     
-#     data = response.json
-#     status = response.status
-
-#     assert data['code'] == '1010'
-#     assert status == '201 CREATED'
-
-# def test_patient_register_duplicate(client, app):
-#     clear_patients_table(app)
-#     patient = {}
-#     patient['email'] = 'test@test.com'
-#     patient['names'] = 'Usuario Test'
-#     patient['age'] = '18'
-#     patient['location'] = 'New York'
-#     patient['password'] = 'test'
-#     patient['dermatological_profile_uuid'] = ''
-
-#     response1 = client.post("/dermoapp/auth/v1/patient-register", json=patient)
-#     response2 = client.post("/dermoapp/auth/v1/patient-register", json=patient)
-    
-#     data1 = response1.json
-#     data2 = response2.json
-#     status1 = response1.status
-#     status2 = response2.status
-
-#     assert data1['code'] == '1010'
-#     assert status1 == '201 CREATED'
-#     assert data2['code'] == '1012'
-#     assert status2 == '400 BAD REQUEST'
+    data = response.json
+    status = response.status
+    print(data)
+    print(status)
+    assert data['code'] == '1020'
+    assert status == '201 CREATED'
     
 
-def clear_patients_table(app):
+def clear_dermatological_profile_table(app):
     with app.app_context():
-        patients = Patient.query.all()
-        for patient in patients:
-            db.session.delete(patient)
+        profiles = DermatologicalProfile.query.all()
+        for profile in profiles:
+            db.session.delete(profile)
             db.session.commit()
             db.session.close()
 
