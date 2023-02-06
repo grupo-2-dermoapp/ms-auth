@@ -26,8 +26,8 @@ def upgrade():
     sa.Column('freckles', sa.Enum('MANY', 'SEVERAL', 'FEW', 'RARE', 'NONE', name='freckles'), nullable=True),
     sa.Column('skin_stay_in_the_sun', sa.Enum('SEVERE_BURNS', 'MODERATE_BURNS', 'SOMETIME_BURNS', 'RARE_BURNS', 'NO_BURNS', name='skinstayinthesun'), nullable=True),
     sa.Column('turn_brown', sa.Enum('NEVER', 'RARELY', 'SOMETHIMES', 'OFTEN', 'ALWAYS', name='turnbrown'), nullable=True),
-    sa.Column('how_brown', sa.Enum('HARLY', 'LIGHT_TAN', 'MEDIUM_TAN', 'DARK_TAN', 'VERY_DARK_TAN', name='howbrown'), nullable=True),
-    sa.Column('how_often_tan', sa.Enum('NEVER', 'RERELY', 'SOMETIMES', 'OFTEN', 'ALWAYS', name='howoftentan'), nullable=True),
+    sa.Column('how_brown', sa.Enum('HARDLY', 'LIGHT_TAN', 'MEDIUM_TAN', 'DARK_TAN', 'VERY_DARK_TAN', name='howbrown'), nullable=True),
+    sa.Column('how_often_tan', sa.Enum('NEVER', 'RARELY', 'SOMETIMES', 'OFTEN', 'ALWAYS', name='howoftentan'), nullable=True),
     sa.Column('artificial_time_expose', sa.Enum('MORE_THREE_MONTHS', 'LAST_TWO_THREE_MONTHS', 'LAST_ONE_TWO_MONTS', 'LAST_WEEK', 'LAST_DAY', name='artificialtimeexpose'), nullable=True),
     sa.PrimaryKeyConstraint('uuid')
     )

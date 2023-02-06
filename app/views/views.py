@@ -197,8 +197,7 @@ class PatientLogin(Resource):
                     'message' : 'Login correcto',
                     'user' : {
                         'email' : user.email,
-                        'names' : user.names,
-                        'surnames' : user.surnames,
+                        'names' : user.names
                     }
                 }
                 return data, 200
