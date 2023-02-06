@@ -43,7 +43,7 @@ class TurnBrown(enum.Enum):
     ALWAYS = 4
 
 class HowBrown(enum.Enum):
-    HARLY = 0
+    HARDLY = 0
     LIGHT_TAN = 1
     MEDIUM_TAN = 2
     DARK_TAN = 3
@@ -58,7 +58,7 @@ class FaceSensitive(enum.Enum):
 
 class HowOftenTan(enum.Enum):
     NEVER = 0
-    RERELY = 1
+    RARELY = 1
     SOMETIMES = 2
     OFTEN = 3
     ALWAYS = 4
