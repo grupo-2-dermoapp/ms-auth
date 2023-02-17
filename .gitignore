@@ -234,3 +234,5 @@ $RECYCLE.BIN/
 
 # VSCode conf
 .vscode
+
+media/*
