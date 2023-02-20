@@ -233,4 +233,7 @@ $RECYCLE.BIN/
 *.db
 
 # VSCode conf
+
 .vscode
+
+media/*

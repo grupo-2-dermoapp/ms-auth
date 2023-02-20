@@ -53,7 +53,6 @@ class DoctorRegister(Resource):
             doctor = Doctor(
                 email = email,
                 names = request_data['names'],
-                surnames = request_data['surnames'],
                 nationality = request_data['nationality'],
                 speciality = request_data['speciality'],
                 password = password_hash,
@@ -216,4 +215,38 @@ class PatientLogin(Resource):
                 'message' : 'Verifica que las credenciales ingresadas sean correctas e inténtalo de nuevo.'
                 }
             return data, 401
+
+class DoctorLogin(Resource):
+    def post(self):
+        email = request.json['email']
+        password = request.json['password']
+        user = Doctor.query.filter_by(email=email).first()
+        if user:
+            if check_password_hash(user.password, password):
+
+                data = {
+                    'code': '1110',
+                    'message' : 'Login correcto',
+                    'user' : {
+                        'email' : user.email,
+                        'names' : user.names
+                    }
+                }
+                return data, 200
+            else:
+                data = {
+                    'code' : '1111',    
+                    'title' : 'Datos errados',
+                    'message' : 'Verifica que las credenciales ingresadas sean correctas e inténtalo de nuevo.'
+                    }
+                return data, 401
+                
+        else:
+            data = {
+                'code' : '1112',
+                'title' : 'Datos errados',
+                'message' : 'Verifica que las credenciales ingresadas sean correctas e inténtalo de nuevo.'
+                }
+            return data, 401
+
 
