@@ -3,6 +3,7 @@ from app.views.views import DermatologicalProfileRegister, Health
 from app.views.views import PatientLogin
 from app.views.views import DoctorLogin
 
+
 from flask_jwt_extended import JWTManager
 from flask_restful import Api
 from flask_cors import CORS
@@ -31,6 +32,7 @@ def app():
     api.add_resource(PatientRegister, "/dermoapp/auth/v1/patient-register")
     api.add_resource(PatientLogin, "/dermoapp/auth/v1/patient-login")
     api.add_resource(DoctorLogin, "/dermoapp/auth/v1/doctor-login")
+
     api.add_resource(DermatologicalProfileRegister, "/dermoapp/auth/v1/dermo-profile-register")
     with app.app_context():
             upgrade()

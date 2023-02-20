@@ -215,7 +215,6 @@ class PatientLogin(Resource):
                 'message' : 'Verifica que las credenciales ingresadas sean correctas e inténtalo de nuevo.'
                 }
             return data, 401
-        
 
 class DoctorLogin(Resource):
     def post(self):
@@ -249,4 +248,5 @@ class DoctorLogin(Resource):
                 'message' : 'Verifica que las credenciales ingresadas sean correctas e inténtalo de nuevo.'
                 }
             return data, 401
+
 
